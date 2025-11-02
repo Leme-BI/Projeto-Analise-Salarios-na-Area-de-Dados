@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 # --- Configuração da Página ---
 # Define o título da página, o ícone e o layout para ocupar a largura inteira.
@@ -10,8 +11,14 @@ st.set_page_config(
     layout="wide",
 )
 
-# --- Carregamento dos dados ---
-df = pd.read_csv("Dados-Final.csv")
+# Pasta onde app.py está
+script_dir = os.path.dirname(__file__)  
+
+# Caminho completo para o CSV dentro da pasta data/
+csv_path = os.path.join(script_dir, "../Dados/Dados-Final.csv")
+
+# Lendo o CSV
+df = pd.read_csv(csv_path)
 
 # --- Barra Lateral (Filtros) ---
 st.sidebar.header("🔍 Filtros")
@@ -135,4 +142,5 @@ with col_graf4:
 
 # --- Tabela de Dados Detalhados ---
 st.subheader("Dados Detalhados")
+
 st.dataframe(df_filtrado)
