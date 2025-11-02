@@ -76,7 +76,3 @@ streamlit run Scripts/app.py
 * Pandas
 * Plotly + Kaleido
 * Streamlit
-
----
-
-Quer que eu faça isso?
